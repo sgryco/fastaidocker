@@ -87,16 +87,3 @@ WORKDIR /fastai
 RUN ln -s /fastai/data /data
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
-
-#ENV PATH /opt/conda/bin:/opt/conda/envs/fastai/bin:$PATH
-#RUN echo "source activate fastai" >> ~/.bashrc
-#RUN bash -c "source activate fastai && conda update -y notebook jupyter"
-#RUN bash -c "source activate fastai && conda install -c conda-forge jupyter_contrib_nbextensions \
-            #jupyter_nbextensions_configurator"
-
-
-#RUN echo "source activate fastai ;  jupyter notebook --ip='0.0.0.0' --allow-root --no-browser" > ~/runnotebook.sh &&\
-    #echo "c.NotebookApp.custom_display_url = 'http://localhost:8888'" >> ~/.jupyter/jupyter_notebook_config.py
-
-#CMD /bin/bash ~/runnotebook.sh
-
