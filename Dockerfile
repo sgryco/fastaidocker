@@ -19,21 +19,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   &&\
   rm -rf /var/lib/apt/lists/* &&\
   curl https://bootstrap.pypa.io/get-pip.py | python3.6
-  # --allow-downgrades
-  # zip \
-  # unzip \
-  # curl \
-  #ca-certificates \
-  #libnccl2=2.0.5-3+cuda9.0 \
-  #libnccl-dev=2.0.5-3+cuda9.0 \
 
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
-
-#ENV PYTHON_VERSION=3.6
-
-#RUN CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: \
-# --compile pillow-simd
 
 # jupyter and ml
 RUN pip install jupyter_contrib_nbextensions \
