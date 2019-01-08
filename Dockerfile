@@ -25,8 +25,8 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
 
 # jupyter and ml
 RUN pip install jupyter_contrib_nbextensions \
-  PyTurboJPEG ipython jupyter 
-RUN pip install torch==0.4.1
+  PyTurboJPEG ipython jupyter
+RUN pip install torch
 
 
 RUN pip install \

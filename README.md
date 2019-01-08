@@ -47,7 +47,7 @@ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 * Get fast ai and the first dataset
 
 ```
-git clone https://github.com/fastai/fastai --depth 1 ~/fastai
+git clone https://github.com/sgryco/fastai.git --depth 1 ~/fastai
 cd ~/fastai/data
 wget http://files.fast.ai/data/dogscats.zip
 unzip dogscats.zip && rm dogscats.zip
@@ -90,7 +90,7 @@ pip install fastai PyTurboJPEG ipython jupyter bcolz \
   sklearn ipdb sklearn sklearn_pandas graphviz isoweek pandas \
   pandas_summary torchtext
 CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: --compile pillow-simd
-git clone https://github.com/fastai/fastai --depth 1
+git clone https://github.com/sgryco/fastai.git --depth 1
 cd fastai/data
 wget http://files.fast.ai/data/dogscats.zip
 unzip dogscats.zip && rm dogscats.zip
