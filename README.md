@@ -66,23 +66,19 @@ docker run --runtime=nvidia --rm -it -p 8888:8888 \
 ```
 
 
-# Commands to install fastai with pip on ubuntu 18.04
+# Commands to install fastai with pip on ubuntu 16/18.04
 
-If you want to install fastai directly on Ubuntu 18.04:
-* Install cuda 9.0 (instructions from [here](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=debnetwork)):
+If you want to install fastai directly on Ubuntu 16/18.04:
+* Install cuda 9.0 (instructions [here](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=debnetwork)):
 
-```
-wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo apt update
-sudo apt install -y cuda-9-0
-```
 
 * Install the requirements in a virtual env
 
 ```
-sudo apt install python3.6 python3-virtualenv libjpeg-turbo8-dev
+# for ubuntu 16.04 do:
+sudo add-apt-repository ppa:jonathonf/python-3.6
+# for all ubuntu do
+sudo apt update && sudo apt install python3.6 python3-virtualenv libjpeg-turbo8-dev
 virtualenv -p python3.6 ~/python-fast.ai
 source ~/python-fast.ai/bin/activate
 pip install fastai PyTurboJPEG ipython jupyter bcolz \
