@@ -78,7 +78,7 @@ If you want to install fastai directly on Ubuntu 16/18.04:
 # for ubuntu 16.04 do:
 sudo add-apt-repository ppa:jonathonf/python-3.6
 # for all ubuntu do
-sudo apt update && sudo apt install python3.6 python3-virtualenv libjpeg-turbo8-dev
+sudo apt update && sudo apt install python3.6-dev python3-virtualenv libjpeg-turbo8-dev
 virtualenv -p python3.6 ~/python-fast.ai
 source ~/python-fast.ai/bin/activate
 pip install fastai PyTurboJPEG ipython jupyter bcolz \
