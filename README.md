@@ -53,10 +53,10 @@ wget http://files.fast.ai/data/dogscats.zip
 unzip dogscats.zip && rm dogscats.zip
 ```
 
-* Run the notebook with docker from [here](https://github.com/MattKleinsmith/dockerfiles/tree/master/fastai)
+* Run the notebook with docker
 
 ```
-# in this repository:
+# Clone this repository, change to its directory and run:
 ./run.sh
 # or
 docker run --runtime=nvidia --rm -it -p 8888:8888 \
