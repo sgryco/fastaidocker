@@ -86,10 +86,10 @@ sudo apt update && sudo apt install python3.6-dev python3-virtualenv libjpeg-tur
 virtualenv -p python3.6 ~/python-fast.ai
 source ~/python-fast.ai/bin/activate
 CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: --compile pillow-simd
-pip install fastai PyTurboJPEG ipython jupyter bcolz \
+pip install fastai==0.7.0 PyTurboJPEG ipython jupyter bcolz \
   opencv_python opencv_contrib_python seaborn \
   sklearn ipdb sklearn sklearn_pandas graphviz isoweek pandas \
-  pandas_summary torchtext
+  pandas_summary torchtext==0.2.3
 pip uninstall Pollow
 git clone https://github.com/sgryco/fastai.git --depth 1
 cd fastai/data
