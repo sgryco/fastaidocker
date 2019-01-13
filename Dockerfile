@@ -11,11 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   python3.6-dev libjpeg-turbo8-dev \
   libpng-dev \
   curl \
-  &&\
-  rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
   build-essential \
+  libglib2.0-0 graphviz\
   &&\
   rm -rf /var/lib/apt/lists/* &&\
   curl https://bootstrap.pypa.io/get-pip.py | python3.6
@@ -23,46 +20,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
 
-# jupyter and ml
-RUN pip install jupyter_contrib_nbextensions \
-  PyTurboJPEG ipython jupyter
-RUN pip install torch
+# jupyter and numpy before install other packages else bcolz will break
+RUN pip install --no-cache-dir jupyter_contrib_nbextensions \
+  ipython jupyter numpy
 
-
-RUN pip install \
-  matplotlib pandas \
-  bottleneck \
-  dataclasses \
-  fastprogress>=0.1.18 \
-  bs4 \
-  matplotlib \
-  numexpr    \
-  numpy>=1.12 \
-  nvidia-ml-py3 \
-  pandas \
-  packaging \
-  Pillow \
-  pyyaml  \
-  requests \
-  scipy \
-  spacy>=2.0.18 \
-  torchvision \
-  typing \
-  notebook
-
-RUN pip install bcolz opencv_python-headless opencv_contrib_python-headless
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  libglib2.0-0 graphviz\
-  &&\
-  rm -rf /var/lib/apt/lists/*
-
-RUN pip install seaborn graphviz sklearn_pandas \
-  sklearn ipdb sklearn sklearn_pandas  isoweek pandas \
-  pandas_summary torchtext
+RUN pip install --no-cache-dir fastai==0.7.0 torchtext==0.2.3
 
 # fix read_feather, will be fixed in next pandas release
-RUN pip install -U ipywidgets feather-format pyarrow==0.10.0
+RUN pip install --no-cache-dir -U ipywidgets feather-format pyarrow==0.10.0
 
 RUN jupyter notebook --generate-config --allow-root && \
     echo "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py && \
