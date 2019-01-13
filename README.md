@@ -86,19 +86,14 @@ Follow instructions [here](https://www.kinmanlam.com/2018/06/install-cuda-90-too
 sudo add-apt-repository ppa:jonathonf/python-3.6
 # for all ubuntu do
 sudo apt update && sudo apt install python3.6-dev python3-virtualenv libjpeg-turbo8-dev \
-    libtiff5-dev libjpeg8-dev zlib1g-dev \
-    libfreetype6-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev \
-    tcl8.6-dev tk8.6-dev python-tk
-
+  libpng-dev curl build-essential libglib2.0-0 graphviz
 virtualenv -p python3.6 ~/python-fast.ai
 source ~/python-fast.ai/bin/activate
-CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: --compile pillow-simd
-pip install -U fastai PyTurboJPEG ipython jupyter bcolz \
-  opencv_python opencv_contrib_python seaborn \
-  sklearn ipdb sklearn sklearn_pandas graphviz isoweek pandas \
-  pandas_summary torchtext torch
-pip uninstall Pollow
-git clone https://github.com/sgryco/fastai.git --depth 1
+
+pip install -U numpy jupyter_contrib_nbextensions ipython jupyter
+pip install fastai==0.7.0 torchtext==0.2.3
+
+git clone https://github.com/fastai/fastai.git --depth 1
 cd fastai/data
 wget http://files.fast.ai/data/dogscats.zip
 unzip dogscats.zip && rm dogscats.zip
