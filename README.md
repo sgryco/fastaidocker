@@ -69,9 +69,19 @@ docker run --runtime=nvidia --rm -it -p 8888:8888 \
 # Commands to install fastai with pip on ubuntu 16/18.04
 
 If you want to install fastai directly on Ubuntu 16/18.04:
-* Install cuda 9.0 (instructions [here](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=debnetwork)):
+* Install cuda 9.0 for Ubuntu 18.04:
+```
+wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/cuda-repo-ubuntu1704_9.0.176-1_amd64.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
+sudo apt-get update && sudo apt-get install -y cuda-9-0
+```
 
-
+* Install cuda 9.0 for Ubuntu 18.04:
+```
+http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+sudo apt-get update && sudo apt-get install -y cuda-9-0
+```
 * Install the requirements in a virtual env
 
 ```
